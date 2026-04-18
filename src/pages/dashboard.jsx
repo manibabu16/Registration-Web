@@ -65,7 +65,7 @@
     );
     }
 
-    // ── MODAL FIELD ───────────────────────────────────────────────────────────────
+    // ── MODAL FIELDs ───────────────────────────────────────────────────────────────
     function Field({ label, error, children }) {
     return (
         <div className="flex flex-col gap-1.5">

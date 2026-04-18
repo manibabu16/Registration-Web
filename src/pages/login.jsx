@@ -6,9 +6,27 @@ function Login() {
   const [activeTab, setActiveTab] = useState("login");
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    navigate("/dashboard"); 
-  };
+  const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+
+const handleLogin = (e) => {
+  e.preventDefault(); // prevent page reload
+
+  // Demo login check
+  if (email === "teacher@school.com" && password === "1234") {
+    const userData = {
+      name: "Mr. Mani",
+      email: email,
+    };
+
+    localStorage.setItem("user", JSON.stringify(userData));
+    localStorage.setItem("token", "demo-token");
+
+    navigate("/dashboard");
+  } else {
+    alert("Invalid email or password");
+  }
+};
   
 
   return (
@@ -51,21 +69,25 @@ function Login() {
 
         {/* 🔐 LOGIN FORM */}
         {activeTab === "login" && (
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleLogin}>
             <input
               type="email"
               placeholder="Email Address"
-              className="w-full px-4 py-3 bg-[#0f1735] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
+              className="w-full px-4 py-3 text-gray-300 bg-[#0f1735] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}    
             />
 
             <input
               type="password"
               placeholder="Password"
-              className="w-full px-4 py-3 bg-[#0f1735] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
+              className="w-full px-4 py-3 text-gray-300 focus:text-white bg-[#0f1735] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
 
             <button
-              onClick={() => navigate("/dashboard")}
+              type="submit"
               className="w-full py-3 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-500 hover:opacity-90 transition"
             >
               Sign In →
