@@ -73,7 +73,7 @@ const handleLogin = (e) => {
             <input
               type="email"
               placeholder="Email Address"
-              className="w-full px-4 py-3 text-gray-300 bg-[#0f1735] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
+              className="w-full px-4 py-3 text-gray-400 bg-[#0f1735] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
               value={email}
               onChange={(e) => setEmail(e.target.value)}    
             />
@@ -81,7 +81,7 @@ const handleLogin = (e) => {
             <input
               type="password"
               placeholder="Password"
-              className="w-full px-4 py-3 text-gray-300 focus:text-white bg-[#0f1735] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
+              className="w-full px-4 py-3 text-gray-400  bg-[#0f1735] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
