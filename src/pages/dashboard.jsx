@@ -38,7 +38,7 @@
     "from-orange-500 to-amber-500",
     "from-indigo-500 to-violet-500",
     ];
-    const avatarColor = (name) =>
+    const avatarColor = (name) => 
     AVATAR_COLORS[name.charCodeAt(0) % AVATAR_COLORS.length];
 
     // ── TOAST ─────────────────────────────────────────────────────────────────────

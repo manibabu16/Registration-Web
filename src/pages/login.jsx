@@ -1,33 +1,59 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+// import axios from "axios";
 
-
-function Login() {
+function Login({ onSwitch, onLoginSuccess, onForgot }) {
   const [activeTab, setActiveTab] = useState("login");
   const navigate = useNavigate();
 
+
   const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-const handleLogin = (e) => {
-  e.preventDefault(); // prevent page reload
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
 
-  // Demo login check
-  if (email === "teacher@school.com" && password === "1234") {
-    const userData = {
-      name: "Mr. Mani",
-      email: email,
-    };
+    try {
+      const res = await axios.post(`${API_BASE}/login`, { email, password });
 
-    localStorage.setItem("user", JSON.stringify(userData));
-    localStorage.setItem("token", "demo-token");
+      // Save token — swap for httpOnly cookie in production
+      localStorage.setItem("token", res.data.token);
 
-    navigate("/dashboard");
-  } else {
-    alert("Invalid email or password");
-  }
-};
-  
+      // ✅ FIX: removed alert() — call parent callback instead
+      onLoginSuccess(res.data.user);
+    } catch (err) {
+      setError(
+        err.response?.data?.message || "Login failed. Please try again.",
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault(); // prevent page reload
+// Clear old data first
+  localStorage.clear();
+console.log("UPDATED VERSION");
+    // Demo login check
+    if (email === "aravinde17@gmail.com" && password === "1234") {
+      const userData = {
+        name: "Mr. Mani",
+        email: email,
+      };
+
+      localStorage.setItem("user", JSON.stringify(userData));
+      localStorage.setItem("token", "demo-token");
+
+      navigate("/dashboard");
+    } else {
+      alert("Invalid email or password");
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
@@ -42,7 +68,7 @@ const handleLogin = (e) => {
             <p className="text-sm text-gray-400">Student Management System</p>
           </div>
         </div>
-
+        {console.log("LIVE UPDATE CHECK")}
         {/* Tabs */}
         <div className="flex bg-[#0f1735] p-1 rounded-lg mb-6">
           <button
@@ -75,7 +101,7 @@ const handleLogin = (e) => {
               placeholder="Email Address"
               className="w-full px-4 py-3 text-gray-400 bg-[#0f1735] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}    
+              onChange={(e) => setEmail(e.target.value)}
             />
 
             <input
@@ -85,6 +111,18 @@ const handleLogin = (e) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <div className="flex justify-between text-sm">
+              <label className="flex items-center gap-2 cursor-pointer text-gray-400">
+                <input type="checkbox" /> Remember for 30 days
+              </label>
+              <button
+                type="button"
+                onClick={onForgot}
+                className="text-blue-500 hover:underline text-gray-400"
+              >
+                Forgot password?
+              </button>
+            </div>
 
             <button
               type="submit"
