@@ -96,21 +96,21 @@ console.log("UPDATED VERSION");
         {/* 🔐 LOGIN FORM */}
         {activeTab === "login" && (
           <form className="space-y-4" onSubmit={handleLogin}>
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="w-full px-4 py-3 text-gray-400 bg-[#0f1735] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+<input
+  type="email"
+  placeholder="Email Address"
+  className="w-full px-4 py-3 text-gray-400 bg-[#1e293b] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+/>
 
-            <input
-              type="password"
-              placeholder="Password"
-              className="w-full px-4 py-3 text-gray-400  bg-[#0f1735] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+<input
+  type="password"
+  placeholder="Password"
+  className="w-full px-4 py-3 text-gray-400 bg-[#1e293b] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
+  value={password}
+  onChange={(e) => setPassword(e.target.value)}
+/>
             <div className="flex justify-between text-sm">
               <label className="flex items-center gap-2 cursor-pointer text-gray-400">
                 <input type="checkbox" /> Remember for 30 days
@@ -139,25 +139,25 @@ console.log("UPDATED VERSION");
             <input
               type="text"
               placeholder="Full Name"
-              className="w-full px-4 py-3 bg-[#0f1735] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
+              className="w-full px-4 py-3 text-gray-400 bg-[#1e293b] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
             />
 
             <input
               type="email"
               placeholder="Email Address"
-              className="w-full px-4 py-3 bg-[#0f1735] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
+              className="w-full px-4 py-3 text-gray-400 bg-[#1e293b] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
             />
 
             <input
               type="password"
               placeholder="Password"
-              className="w-full px-4 py-3 bg-[#0f1735] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
+              className="w-full px-4 py-3 text-gray-400 bg-[#1e293b] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
             />
 
             <input
               type="password"
               placeholder="Confirm Password"
-              className="w-full px-4 py-3 bg-[#0f1735] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
+              className="w-full px-4 py-3 text-gray-400 bg-[#1e293b] border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-gray-400"
             />
 
             <button className="w-full py-3 rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 hover:opacity-90 transition ">

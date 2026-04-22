@@ -5,12 +5,6 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    watch: {
-      usePolling: true,
-      interval: 100,
-    },
-    hmr: {
-      overlay: true,
-    },
+    watch: { usePolling: true, interval: 100 }, // only if necessary (WSL/Docker)
   },
 })
