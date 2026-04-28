@@ -246,7 +246,7 @@
 
             {/* ── PAGE TITLE ── */}
             <div className="mb-7">
-            <h1 className="text-2xl font-black tracking-tight">Students</h1>
+            <h1 className="text-2xl font-black tracking-tight">Students   </h1>
             <p className="text-gray-500 text-sm mt-1">Manage all student records</p>
             </div>
 

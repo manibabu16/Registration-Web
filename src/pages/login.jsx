@@ -113,14 +113,14 @@ console.log("UPDATED VERSION");
 />
             <div className="flex justify-between text-sm">
               <label className="flex items-center gap-2 cursor-pointer text-gray-400">
-                <input type="checkbox" /> Remember for 30 days
+                <input type="checkbox" /> Remember for 30 days   {email}
               </label>
               <button
                 type="button"
                 onClick={onForgot}
                 className="text-blue-500 hover:underline text-gray-400"
               >
-                Forgot password?
+                Forgot password?   {password}
               </button>
             </div>
 
